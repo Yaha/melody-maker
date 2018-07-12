@@ -1,34 +1,29 @@
-const path = require('path');
-const OfflinePlugin = require('offline-plugin');
+const OfflinePlugin = require("offline-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: 'app.js'
-  },
-  module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['env'],
-          plugins: [["transform-react-jsx", { "pragma": "h" }]]
-        }
-      }
-    },
-    {
-      test: /\.scss$/,
-      use: [
-        "scss-loader",
-        "css-loader",
-        "sass-loader"
-      ]
-    }],
-  },
-  plugins: [
-    new OfflinePlugin()
-  ]
+	entry: "./src/index.js",
+	module: {
+		rules: [
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: {
+					loader: "babel-loader",
+					options: {
+						presets: ["env"],
+						plugins: [["transform-react-jsx", { pragma: "h" }]]
+					}
+				}
+			}
+		]
+	},
+	plugins: [
+		new OfflinePlugin(),
+		new HtmlWebpackPlugin({
+			filename: "index.html",
+			template: "index.html",
+			inject: true
+		})
+	]
 };
