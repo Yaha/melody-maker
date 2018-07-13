@@ -4,20 +4,89 @@ OfflinePluginRuntime.install();
 import "./assets/scss/styles.scss";
 import { h, app } from "hyperapp";
 
-const state = {
-	count: 0
-};
+const state = {};
 
-const actions = {
-	down: value => state => ({ count: state.count - value }),
-	up: value => state => ({ count: state.count + value })
-};
+const actions = {};
 
 const view = (state, actions) => (
-	<div>
-		<h1>{state.count}</h1>
-		<button onclick={() => actions.down(1)}>-</button>
-		<button onclick={() => actions.up(1)}>+</button>
+	<div class="paper container">
+		<h1>Melody Maker</h1>
+		<div class="row">
+			<div class="col-4 col">
+				<button>Add</button>
+				<button>Save</button>
+				<button>Download</button>
+			</div>
+			<div class="col-8 col">
+				<input
+					id="projectName"
+					class="input-block"
+					type="text"
+					placeholder="Name of your project"
+				/>
+			</div>
+		</div>
+		<form>
+			<fieldset>
+				<legend>Global Settings</legend>
+				<div class="row">
+					<div class="col-4 col">
+						<div class="form-group">
+							<label for="frame">Frame per second</label>
+							<select id="frame">
+								<option>1</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-4 col">
+						<div class="form-group">
+							<label for="language">Language</label>
+							<select id="language">
+								<option>English</option>
+								<option>French</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-4 col">
+						<div class="form-group">
+							<label for="gamme">Gamme (optionnal)</label>
+							<select id="gamme">
+								<option>E#</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</form>
+		<table>
+			<thead>
+				<tr>
+					<th>Tracks</th>
+					<th>Sound</th>
+					<th colspan="8" />
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Line name</td>
+					<td>
+						<select>
+							<option>Frequence style</option>
+						</select>
+					</td>
+					<td colspan="8" />
+				</tr>
+				<tr>
+					<td>Line 2</td>
+					<td>
+						<select>
+							<option>Piano style</option>
+						</select>
+					</td>
+					<td colspan="8" />
+				</tr>
+			</tbody>
+		</table>
 	</div>
 );
 
