@@ -1,13 +1,6 @@
 <template>
-  <div id="app" class="paper">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div>
     <div class="row flex-middle">
-        <div class="col-3 col">
-            <logo/>
-        </div>
         <div class="col-9 col">
             <project-title/>
             <button>Add</button>
@@ -17,20 +10,17 @@
     </div>
     <settings />
     <track-list />
-    <router-view/>
   </div>
 </template>
 
 <script>
-import ProjectTitle from './components/ProjectTitle'
-import Logo from './components/Logo'
-import Settings from './components/Settings'
-import TrackList from './components/TrackList'
+import ProjectTitle from './ProjectTitle'
+import Settings from './Settings'
+import TrackList from './TrackList'
 
 export default {
   components: {
     ProjectTitle,
-    Logo,
     Settings,
     TrackList
   }

@@ -6,10 +6,10 @@
   "homepage": "https://github.com/martingautier/melody-maker#readme",
   "version": "0.0.1",
   "keywords": [
-      "hyperapp",
-      "javascript",
-      "melody",
-      "pwa"
+    "hyperapp",
+    "javascript",
+    "melody",
+    "pwa"
   ],
   "private": true,
   "scripts": {
@@ -23,7 +23,8 @@
     "register-service-worker": "^1.0.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",
