@@ -7,7 +7,8 @@
       <div class="collapsible">
         <div class="collapsible-body">
           <ul class="inline">
-            <li><router-link :to="{ name: 'maker' }">Make melody</router-link></li>
+            <li><router-link :to="{ name: 'melody' }">Make melody</router-link></li>
+            <li><router-link :to="{ name: 'sounds' }">Make sounds</router-link></li>
             <li><router-link :to="{ name: 'documentation' }">Documentation</router-link></li>
             <li><router-link :to="{ name: 'about' }">About</router-link></li>
             <li><a href="https://github.com/martingautier/melody-maker">Github</a></li>

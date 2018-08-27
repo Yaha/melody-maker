@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Maker from '@/app/maker/components/Maker'
+import Maker from '@/app/melody/components/Maker'
 import Documentation from '@/app/pages/components/Documentation'
 import About from '@/app/pages/components/About'
 
@@ -12,7 +12,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'maker',
+      name: 'melody',
+      component: Maker
+    },
+    {
+      path: '/',
+      name: 'sounds',
       component: Maker
     },
     {
