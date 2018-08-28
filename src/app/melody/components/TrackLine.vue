@@ -7,7 +7,7 @@
       </select>
     </td>
     <td v-for="col in cols">
-      <track-box :currentBox="currentBox" />
+      <track-box :currentCol="currentCol" :play="play" :col="col"/>
     </td>
   </tr>
 </template>
@@ -16,7 +16,7 @@
 import TrackBox from './TrackBox'
 
 export default {
-  props: ['cols', 'currentBox'],
+  props: ['cols', 'currentCol', 'play'],
   components: {
     TrackBox
   }

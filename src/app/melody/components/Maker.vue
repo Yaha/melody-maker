@@ -12,7 +12,7 @@
     <button @click="pause">Pause</button>
     <button @click="start">Play</button>
     <button @click="stop">Stop</button>
-    <track-list :cols="cols" :currentBox="currentBox" :play="play"/>
+    <track-list :cols="cols" :currentCol="currentCol" :play="play"/>
   </div>
 </template>
 
@@ -25,9 +25,9 @@ export default {
   data: () => {
     return {
       cols: 100,
-      tempo: 1000, // ms
+      tempo: 300, // ms
       play: false,
-      currentBox: 0,
+      currentCol: 0,
       intervalId: null
     }
   },
@@ -38,19 +38,23 @@ export default {
   },
   methods: {
     start () {
-      this.intervalId = setInterval(this.goToNextBox, this.tempo)
-      this.play = true
+      if (!this.play) {
+        this.intervalId = setInterval(this.goToNextBox, this.tempo)
+        this.play = true
+      }
     },
     pause () {
-      clearInterval(this.intervalId)
-      this.play = false
+      if (this.play) {
+        clearInterval(this.intervalId)
+        this.play = false
+      }
     },
     stop () {
       this.pause()
-      this.currentBox = 0
+      this.currentCol = 0
     },
     goToNextBox () {
-      if(this.currentBox < this.cols) this.currentBox += 1
+      if (this.currentCol < this.cols) this.currentCol += 1
       else this.pause()
     }
   }

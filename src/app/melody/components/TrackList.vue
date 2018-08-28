@@ -11,8 +11,8 @@
           </tr>
         </thead>
         <tbody>
-          <track-line :cols="cols" :currentBox="currentBox" />
-          <track-line :cols="cols" :currentBox="currentBox" />
+          <track-line :cols="cols" :currentCol="currentCol" :play="play" />
+          <track-line :cols="cols" :currentCol="currentCol" :play="play"/>
         </tbody>
       </table>
     </div>
@@ -23,7 +23,7 @@
 import TrackLine from './TrackLine'
 
 export default {
-  props: ['cols', 'currentBox'],
+  props: ['cols', 'currentCol', 'play'],
   components: {
     TrackLine
   }
