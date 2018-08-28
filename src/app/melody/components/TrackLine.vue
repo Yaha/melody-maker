@@ -6,7 +6,7 @@
         <option>Frequence style</option>
       </select>
     </td>
-    <td v-for="col in cols">
+    <td v-for="col in cols" :key="col" style="padding: 0">
       <track-box :currentCol="currentCol" :play="play" :col="col"/>
     </td>
   </tr>
