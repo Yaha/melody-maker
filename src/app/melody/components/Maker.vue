@@ -9,6 +9,7 @@
         </div>
     </div>
     <settings />-->
+    <fetching />
     <button @click="pause">Pause</button>
     <button @click="start">Play</button>
     <button @click="stop">Stop</button>
@@ -20,6 +21,7 @@
 import ProjectTitle from './ProjectTitle'
 import Settings from './Settings'
 import TrackList from './TrackList'
+import Fetching from '@/app/core/components/Fetching'
 
 export default {
   data: () => {
@@ -34,7 +36,11 @@ export default {
   components: {
     ProjectTitle,
     Settings,
-    TrackList
+    TrackList,
+    Fetching
+  },
+  mounted () {
+    this.$bus.$on('pause', this.pause)
   },
   methods: {
     start () {

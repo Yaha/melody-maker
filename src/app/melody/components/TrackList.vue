@@ -11,8 +11,9 @@
           </tr>
         </thead>
         <tbody>
-          <track-line :cols="cols" :currentCol="currentCol" :play="play" />
-          <track-line :cols="cols" :currentCol="currentCol" :play="play"/>
+          <track-line :cols="cols" :currentCol="currentCol" :play="play" :player="player"/>
+          <track-line :cols="cols" :currentCol="currentCol" :play="play" :player="player"/>
+          <track-line :cols="cols" :currentCol="currentCol" :play="play" :player="player"/>
         </tbody>
       </table>
     </div>
@@ -21,9 +22,19 @@
 
 <script>
 import TrackLine from './TrackLine'
+import WebAudioFontPlayer from 'webaudiofont'
 
 export default {
   props: ['cols', 'currentCol', 'play'],
+  data: function () {
+    const player = new WebAudioFontPlayer()
+    const AudioContextFunction = window.AudioContext || window.webkitAudioContext
+    const audioContext = new AudioContextFunction()
+    player.audioContext = audioContext
+    return {
+      player: player
+    }
+  },
   components: {
     TrackLine
   }

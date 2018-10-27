@@ -18,9 +18,15 @@ import '@/theme.js'
 // Plugins
 import eventbus from '@/plugins/eventbus'
 
+// Axios
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 // Effortlessly keep vue-router and vuex store in sync.
 import { sync } from 'vuex-router-sync'
 sync(store, router) // https://github.com/vuejs/vuex-router-sync/tree/next
+
+Vue.use(VueAxios, axios)
 
 Vue.use(eventbus)
 
